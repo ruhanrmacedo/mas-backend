@@ -1,0 +1,14 @@
+{
+    "type":"postgress",
+    "host":"localhost",
+    "port":5432,
+    "username":"postgress",
+    "password":"postgress",
+    "database":"mas",
+    "migrations":["./src/database/migrations/**.ts"],
+    "entities": ["./src/models/*.ts"],
+    "cli": {
+        "migrationsDir":"./src/database/migrations"
+    }
+
+}
