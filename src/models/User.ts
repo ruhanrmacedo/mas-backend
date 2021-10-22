@@ -1,4 +1,4 @@
-import {Column, CreateDateColumn, Entity, PrimaryColumn} from 'typeorm'
+import {Entity, Column, CreateDateColumn, PrimaryColumn} from 'typeorm'
 import {v4 as uuid} from 'uuid';
 
 
@@ -15,16 +15,16 @@ class User {
     readonly id:string;
 
     @Column()
-    name:string;
+    name: string;
 
     @Column()
-    email:string;
+    email: string;
 
     @Column()
-    password:string;
+    password: string;
 
     @CreateDateColumn()
-    crate_at:Date;
+    create_at: Date;
 
 }
 
