@@ -1,25 +1,24 @@
-import {getRepository} from 'typeorm';
-import {Activy} from '../models/Activy';
+/*import {getRepository} from 'typeorm';
+import {Activy} from '../models/Activy';*/
 
 interface ActivyData {
     name: string;
     activy_date: string;
-    course_unit_id: string;
+    grade: number;
+    courseUnitId: string;
 }
 
 class CreateActivyService {
 
-    async execute({name,activy_date, course_unit_id}:ActivyData) {
+    public async execute(data:ActivyData){
+        const {name,activy_date,grade,courseUnitId} = data;
 
-        const activyRepository = getRepository(Activy);
-
-        const activy = activyRepository.create({
+        const activy = {
             name,
             activy_date,
-            course_unit_id
-        });
-
-        await activyRepository.save(activy);
+            grade,
+            courseUnitId
+        };
 
         return activy;
     }
