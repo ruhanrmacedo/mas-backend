@@ -1,13 +1,14 @@
-import {Entity, Column, CreateDateColumn, PrimaryColumn, OneToMany} from 'typeorm'
-import {v4 as uuid} from 'uuid';
+
+import {Entity, Column, CreateDateColumn, PrimaryColumn, OneToMany} from 'typeorm';
+import { v4 as uuid} from 'uuid';
 import { Activy } from './Activy';
 
 @Entity("course_units")
-class CourseUnit {
+class CourseUnit{
 
     constructor(){
         if(!this.id){
-            this.id = uuid()
+            this.id = uuid();
         }
     }
 
@@ -25,7 +26,8 @@ class CourseUnit {
 
     @OneToMany(() => Activy, activy => activy.course_unit)
     activies: Activy[]
-    
+
+
 }
 
 export {CourseUnit}
