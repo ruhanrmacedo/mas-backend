@@ -1,5 +1,6 @@
-/*import { getRepository} from "typeorm";
-import { CourseUnit } from "../models/CourseUnit";*/
+import { getRepository} from "typeorm";
+import { CourseUnit } from "../models/CourseUnit";
+
 interface CouseUnitData {
     name: string;
     description: string;
@@ -9,7 +10,7 @@ class CreateCourseUnitService{
     public async execute(data:CouseUnitData){
         const {name,description} = data;
 
-        /*const courseUnitRepository = getRepository(CourseUnit);
+        const courseUnitRepository = getRepository(CourseUnit);
 
         const checkCourseUnitExists = await courseUnitRepository.findOne({name});
 
@@ -17,13 +18,14 @@ class CreateCourseUnitService{
             return{
                 error:"Course Unit already exist"
             }
-        }*/
-        const courseUnit = {
+        }
+        
+        const courseUnit = courseUnitRepository.create({
             name,
             description
-        };
+        });
         
-        /*await courseUnitRepository.save(courseUnit);*/
+        await courseUnitRepository.save(courseUnit);
 
         return courseUnit;
 

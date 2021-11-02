@@ -1,4 +1,4 @@
-import { Entity, Column, CreateDateColumn, PrimaryColumn, ManyToOne, JoinTable } from 'typeorm';
+import {Entity, Column, CreateDateColumn, PrimaryColumn, ManyToOne, JoinTable} from 'typeorm';
 import { v4 as uuid} from 'uuid';
 import { CourseUnit } from './CourseUnit';
 
@@ -9,20 +9,19 @@ class Activy {
         if(!this.id){
             this.id = uuid();
         }
-
     }
-    
+
     @PrimaryColumn()
     readonly id: string;
 
     @Column()
-    name:string;
+    name: string;
 
     @Column()
     activy_date: Date;
 
     @Column()
-    CourseUnitId: string;
+    courseUnitId: string;
 
     @Column()
     grade: number;
@@ -33,7 +32,6 @@ class Activy {
     @ManyToOne(() => CourseUnit, course_unit => course_unit.activies)
     @JoinTable()
     course_unit: CourseUnit
-
 }
 
 export {Activy}
