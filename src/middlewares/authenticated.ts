@@ -1,5 +1,3 @@
-//export default function authenticated(){}
-
 import {NextFunction, Request, Response} from "express";
 import { verify} from "jsonwebtoken";
 import authConfig from "../config/auth";
@@ -29,7 +27,7 @@ export default function authenticated(request:Request, response:Response, next: 
 
     const {sub,role} = verifyToken as Token;
 
-    request.body/*.user*/ = {
+    request.body.user = {
         id: sub,
         role: role
     }
