@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import { CreateUserService } from "../services/CreateUserService";
-/*import { GetUserService } from '../services/GetUserService';*/
+import { GetUserService } from '../services/GetUserService';
 
 class UserController {
 
@@ -14,7 +14,7 @@ class UserController {
         return response.json(user);
     }
 
-    /*async show(request: Request, response:Response) {
+    async show(request: Request, response:Response) {
 
         const userData = request.body.user
 
@@ -23,7 +23,7 @@ class UserController {
         const user = await getUser.execute(userData);
 
         return response.json(user);
-    }*/
+    }
 }
 
 export {UserController}
